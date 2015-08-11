@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/org.apache.commons.logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-aop-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-aspects-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-beans-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-context-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-context-support-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-core-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-expression-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-instrument-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-instrument-tomcat-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-jdbc-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-jms-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-messaging-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-orm-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-oxm-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-test-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-tx-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-web-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-webmvc-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-webmvc-portlet-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/enclaveit/library/spring-websocket-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
