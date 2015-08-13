@@ -15,17 +15,18 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 
-				<form:form method="post" action="/MavenTest/update"
-					modelAttribute="newEmp">
+				<form:form   method="post" action="update" modelAttribute="newEmp" commandName="newEmp">
 					<table>
 						<tr>
 							<td>Name</td>
 							<td><form:input class="form-control" path="name" /></td>
+							<td><form:errors path="name"></form:errors></td>
 						</tr>
 
 						<tr>
 							<td>Age</td>
 							<td><form:input class="form-control" path="age" /></td>
+							<td><form:errors path="age"></form:errors></td>
 						</tr>
 
 						<tr>

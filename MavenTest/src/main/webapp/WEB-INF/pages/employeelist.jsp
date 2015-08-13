@@ -11,6 +11,7 @@
 </head>
 <body>
 	<h1>List</h1>
+
 	<table border="1" class="table table-condensed">
 		<tr>
 			<td>Id</td>
@@ -24,12 +25,15 @@
 				<td>${status.index + 1}</td>
 				<td>${i.name}</td>
 				<td>${i.age}</td>
-				<td><a href="updatepage?id=${i.id }">Detail</a></td>
-				<td><a href="delete?id=${i.id}">Delete</a></td>
+				<td><form action="list" method="post">
+						<a href="updatepage?id=${i.id }">Detail</a></td>
+				<td><a href="delete?id=${i.id}">Delete</a>
+				</form></td>
 			</tr>
 		</c:forEach>
 
 	</table>
+
 	<center>
 		<a href="addpage"><button class="btn btn-primary">ADD</button></a>
 	</center>

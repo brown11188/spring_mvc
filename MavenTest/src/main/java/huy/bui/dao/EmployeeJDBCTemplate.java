@@ -22,6 +22,7 @@ public class EmployeeJDBCTemplate implements EmployeeDAO {
 	public List<Employee> getEmployeeList() {
 		String sql = "SELECT * FROM employee";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		
 		List<Employee> list = jdbcTemplate.query(sql, new RowMapper<Employee>() {
 			public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
@@ -61,15 +62,15 @@ public class EmployeeJDBCTemplate implements EmployeeDAO {
 	public void addEmployee(Employee employee) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "INSERT INTO employee(name,age) VALUES (?,?)";
-		int rows = jdbcTemplate.update(sql, employee.getName(), employee.getAge());
-		System.out.println(rows);
+		jdbcTemplate.update(sql, employee.getName(), employee.getAge());
+		
 	}
 
 	public void updateEmployee(Employee employee) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		String sql = "UPDATE employee SET name = ?, age = ? where id = ?";
-		int rs = jdbcTemplate.update(sql, employee.getName(), employee.getAge(), employee.getId());
-		System.out.println(employee.getName());
+		jdbcTemplate.update(sql, employee.getName(), employee.getAge(), employee.getId());
+		
 	}
 
 	public void deleteEmployee(int id) {
