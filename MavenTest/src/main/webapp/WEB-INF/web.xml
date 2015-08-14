@@ -10,7 +10,18 @@
        <servlet-class>
            org.springframework.web.servlet.DispatcherServlet
        </servlet-class>
-       <load-on-startup>1</load-on-startup>
+       
+       <init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>huy.bui.config.Configuration</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
    </servlet>    
     
    <servlet-mapping>

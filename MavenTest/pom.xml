@@ -7,6 +7,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Test Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	 <properties>
+	 	<hibernate.version>3.6.9.Final</hibernate.version>
+	 	<slf4j.version>1.7.5</slf4j.version>
+	 	<logback.version>1.0.13</logback.version>
+	 </properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -30,6 +35,31 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.1.2.Final</version>
 		</dependency>
+		<!-- Hibernate -->
+		 <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+<!-- Logging with SLF4J & LogBack -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -41,6 +71,14 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+
+
+		<!-- COnfig annotation -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.2.0.RELEASE</version>
 		</dependency>
 
 

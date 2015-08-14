@@ -9,32 +9,14 @@
       http://www.springframework.org/schema/context/spring-context-4.2.xsd  
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-	<context:component-scan base-package="huy.bui.controller" />
-	<context:annotation-config />
-	<mvc:annotation-driven />
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/pages/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-	<!-- DataSource -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver">
-		</property>
-		<property name="url" value="jdbc:mysql://localhost:3306/employee">
-		</property>
-		<property name="username" value="root">
-		</property>
-		<property name="password" value="123456789">
-		</property>
-	</bean>
-	
-
-	<!-- EmployeeDAO -->
-	<bean id="employeeDAO" class="huy.bui.dao.EmployeeJDBCTemplate"></bean>
+      <mvc:annotation-driven />
+	<!-- <context:component-scan base-package="huy.bui.controller" /> <context:annotation-config 
+		/> <mvc:annotation-driven /> <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix"> <value>/WEB-INF/pages/</value> </property> <property 
+		name="suffix"> <value>.jsp</value> </property> </bean> -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"> </property> 
+		<property name="url" value="jdbc:mysql://localhost:3306/employee"> </property> 
+		<property name="username" value="root"> </property> <property name="password" 
+		value="123456789"> </property> </bean> <bean id="employeeDAO" class="huy.bui.dao.EmployeeJDBCTemplate"></bean> -->
 </beans>
