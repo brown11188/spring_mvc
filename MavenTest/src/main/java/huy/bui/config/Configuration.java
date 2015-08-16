@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import huy.bui.dao.EmployeeHibernateDAOIpml;
 import huy.bui.dao.EmployeeJDBCTemplate;
 
 @org.springframework.context.annotation.Configuration
@@ -26,21 +27,26 @@ public class Configuration extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/employee");
-		dataSource.setUsername("root");
-		dataSource.setPassword("123456789");
-		return dataSource;
-	}
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://localhost:3306/employee");
+//		dataSource.setUsername("root");
+//		dataSource.setPassword("");
+//		return dataSource;
+//	}
 
-	@Bean(name = "employeeDAO")
-	public EmployeeJDBCTemplate getEmployeeJDBCTemplate() {
-		EmployeeJDBCTemplate employeeDAO = new EmployeeJDBCTemplate();
-
-		return employeeDAO;
-	}
+//	@Bean(name = "employeeDAO")
+//	public EmployeeJDBCTemplate getEmployeeJDBCTemplate() {
+//		EmployeeJDBCTemplate employeeDAO = new EmployeeJDBCTemplate();
+//
+//		return employeeDAO;
+//	}
+	
+//	public EmployeeHibernateDAOIpml getEmployeeHibernate(){
+//		EmployeeHibernateDAOIpml employeeDAO = new EmployeeHibernateDAOIpml();
+//		return employeeDAO;
+//	}
 
 }

@@ -9,14 +9,50 @@
       http://www.springframework.org/schema/context/spring-context-4.2.xsd  
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-      <mvc:annotation-driven />
-	<!-- <context:component-scan base-package="huy.bui.controller" /> <context:annotation-config 
-		/> <mvc:annotation-driven /> <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix"> <value>/WEB-INF/pages/</value> </property> <property 
-		name="suffix"> <value>.jsp</value> </property> </bean> -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"> </property> 
-		<property name="url" value="jdbc:mysql://localhost:3306/employee"> </property> 
-		<property name="username" value="root"> </property> <property name="password" 
-		value="123456789"> </property> </bean> <bean id="employeeDAO" class="huy.bui.dao.EmployeeJDBCTemplate"></bean> -->
+	<context:annotation-config />
+	<mvc:annotation-driven />
+	<context:component-scan base-package="huy.bui.controller" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/employee">
+		</property>
+		<property name="username" value="root">
+		</property>
+		<property name="password" value="">
+		</property>
+	</bean>
+	<bean id="employeeDAO" class="huy.bui.dao.EmployeeHibernateDAOIpml">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+
+	<!-- Hibernate 3 Annotation SessionFactory Bean definition -->
+	<bean id="hibernate3AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>huy.bui.model.Employee</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

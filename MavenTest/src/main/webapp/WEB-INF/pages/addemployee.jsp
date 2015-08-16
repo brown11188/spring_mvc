@@ -19,7 +19,7 @@
 		
 		<div id="main">
 			<form:form  method="post"
-				action="add" modelAttribute="newEmp" commandName="newEmp">
+				action="addhibernate" modelAttribute="newEmp" commandName="newEmp">
 				<table>
 					<tr>
 						<td>Employees name:</td>
