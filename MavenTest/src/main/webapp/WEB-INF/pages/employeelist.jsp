@@ -27,7 +27,7 @@
 				<td>${i.age}</td>
 				<td><form action="list" method="post">
 						<a href="updatepage?id=${i.id }">Detail</a></td>
-				<td><a href="delete?id=${i.id}">Delete</a>
+				<td><a href="deletehibernate?id=${i.id}">Delete</a>
 				</form></td>
 			</tr>
 		</c:forEach>

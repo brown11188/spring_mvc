@@ -19,7 +19,6 @@ public class EmployeeHibernateDAOIpml implements EmployeeDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-
 	public List<Employee> getEmployeeList() {
 		Session session = this.sessionFactory.openSession();
 		List<Employee> employeeList = session.createQuery("from Employee").list();
@@ -28,26 +27,36 @@ public class EmployeeHibernateDAOIpml implements EmployeeDAO {
 	}
 
 	public Employee getEmloyee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.openSession();
+		Employee employee = (Employee) session.load(Employee.class, new Integer(id));
+		return employee;
 	}
 
 	public void addEmployee(Employee employee) {
-		 Session session = this.sessionFactory.openSession();
-		 Transaction tx = session.beginTransaction();
-		 session.persist(employee);
-		 tx.commit();
-		 session.close();
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.persist(employee);
+		tx.commit();
+		session.close();
 	}
 
 	public void updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(employee);
+		tx.commit();
+		session.close();
 	}
 
 	public void deleteEmployee(int id) {
-		// TODO Auto-generated method stub
-
+		Session session = this.sessionFactory.openSession();
+		 Transaction tx = session.beginTransaction();
+		Employee employee = (Employee) session.load(Employee.class, new Integer(id));
+		if (employee != null) {
+			session.delete(employee);
+			tx.commit();
+		}
+		session.close();
 	}
 
 }

@@ -30,7 +30,7 @@
 		</property>
 		<property name="username" value="root">
 		</property>
-		<property name="password" value="">
+		<property name="password" value="123456789">
 		</property>
 	</bean>
 	<bean id="employeeDAO" class="huy.bui.dao.EmployeeHibernateDAOIpml">
