@@ -1,12 +1,19 @@
 package huy.bui.controller;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +32,24 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeHibernateDAOIpml employeeDAO;
-
+	
+	
+	
+	@RequestMapping(value={"/","/home"}, method=RequestMethod.GET)
+	public String home(Locale locale, Model mv){
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG, locale);
+		Locale locale2 = LocaleContextHolder.getLocale();
+		
+		String formatedDateTime = dateFormat.format(date);
+		mv.addAttribute("serverTime", formatedDateTime);
+		mv.addAttribute("currentLocale", locale2);
+		return "home";
+	}
+	
+//	@RequestMapping(value="/locale")
+//	public String getCurrentLocale(Locale locale,)
+	
 	// @Autowired
 	// private EmployeeJDBCTemplate employeeDAO;
 	//
@@ -145,4 +169,6 @@ public class EmployeeController {
 		employeeDAO.deleteEmployee(id);
 		return "redirect:/listhibernate";
 	}
+	
+	
 }

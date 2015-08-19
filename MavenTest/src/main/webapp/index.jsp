@@ -1,6 +1,3 @@
 <html>
-<body>
-<h2>Hello World!</h2>
-<% response.sendRedirect("/MavenTest/listhibernate"); %>
-</body>
+<% response.sendRedirect("/MavenTest/home"); %>
 </html>

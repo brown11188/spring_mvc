@@ -12,7 +12,7 @@
 	<context:annotation-config />
 	<mvc:annotation-driven />
 	<context:component-scan base-package="huy.bui.controller" />
-
+	<mvc:resources mapping="/resources/**" location="/resources/theme/" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -53,6 +53,15 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
+		</property>
+	</bean>
+	<!-- Tiles configuration -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/tiles-definitions.xml</value>
+			</list>
 		</property>
 	</bean>
 </beans>
