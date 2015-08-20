@@ -5,15 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Employee Management</title>
 </head>
 <body>
-<div class="menu">
+<div class="menu bs-example" >
 <center>
-<h3><span class="label label-default">Menu</span></h3>
+<h3><span class="label label-default"><spring:message code="label.Menu" text="defaultText"></spring:message> </span></h3>
 </center>
-	<ul class="nav nav-pills nav-stacked">
-		<li>
+	<ul class="nav nav-pills nav-stacked" style="border: 15px;">
+		
+		<li >
 			<spring:url value="/listhibernate" var="listUrl" htmlEscape="true"></spring:url>
 			<a href="${listUrl }">List Employee</a>
 		</li>

@@ -24,6 +24,13 @@
 		<load-on-startup>1</load-on-startup>
 		 
    </servlet>    
+   
+   <jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <page-encoding>UTF-8</page-encoding>
+    </jsp-property-group>
+</jsp-config>
     
    <servlet-mapping>
        <servlet-name>spring-mvc</servlet-name>

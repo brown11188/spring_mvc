@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
@@ -30,16 +31,12 @@
 								<td><form:errors path="age" cssStyle="color: red"></form:errors></td>
 							</tr>
 						</table>
-						<div class="row-fluid show-grid">
-							<div class="span4"></div>
-							<div class="span4">
-								<input class="btn btn-primary" type="submit" value="ADD">
-							</div>
-							<div class="span4"></div>
-						</div>
 
+						<input class="btn btn-primary" type="submit" value='<spring:message code="label.Add" />'>
 					</form:form>
 				</div>
+
+
 			</center>
 
 		</tiles:putAttribute>
