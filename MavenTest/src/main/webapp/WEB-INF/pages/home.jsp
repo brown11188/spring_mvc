@@ -9,8 +9,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-	<tiles:insertDefinition name="defaultTemplate">
-		<tiles:putAttribute name="body">
+
 			<div class="body">
 				<h2>This is my homepage</h2>
 				
@@ -38,9 +37,10 @@
 					velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
 					occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 					mollit anim id est laborum.</p>
+					
 				<a class="more">Read more</a> 
 			</div>
-		</tiles:putAttribute>
-	</tiles:insertDefinition>
+			<button id="helloAjax"  type="button">Heheheh</button>
+
 </body>
 </html>

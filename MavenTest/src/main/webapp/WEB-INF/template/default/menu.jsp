@@ -8,22 +8,23 @@
 <title>Employee Management</title>
 </head>
 <body>
-<div class="menu bs-example" >
-<center>
-<h3><span class="label label-default"><spring:message code="label.Menu" text="defaultText"></spring:message> </span></h3>
-</center>
-	<ul class="nav nav-pills nav-stacked" style="border: 15px;">
-		
-		<li >
-			<spring:url value="/listhibernate" var="listUrl" htmlEscape="true"></spring:url>
-			<a href="${listUrl }">List Employee</a>
-		</li>
-		<li>
-			<spring:url value="/addpage" var="addUrl" htmlEscape="true"></spring:url>
-			<a href="${addUrl }">Add Employee</a>
-		</li>
-	</ul>
-</div>
+	<div class="menu bs-example">
+		<div class="text-center">
+			<h3>
+				<span class="label label-default"><spring:message
+						code="label.Menu" text="defaultText"></spring:message> </span>
+			</h3>
+		</div>
+		<ul id="menuList" class="nav nav-pills nav-stacked"
+			style="border: 15px;">
+			<li id="liHome" class = "test"><a href="home">Home</a></li>
+			<li id="liList"><spring:url value="/listhibernate" var="listUrl"
+					htmlEscape="true" /> <a href="${listUrl }">List Employee</a></li>
+			<li id="liAdd"><spring:url value="/addpage" var="addUrl"
+					htmlEscape="true" /> <a href="${addUrl }">Add Employee</a></li>
+		</ul>
+	</div>
 
 </body>
+
 </html>

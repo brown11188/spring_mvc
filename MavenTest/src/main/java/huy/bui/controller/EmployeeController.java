@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.validation.Valid;
 
@@ -32,27 +33,33 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeHibernateDAOIpml employeeDAO;
-	
-	
-	
-	@RequestMapping(value={"/","/home"}, method=RequestMethod.GET)
-	public String home(Locale locale, Model mv){
+
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	public String home(Locale locale, Model mv) {
 		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG, locale);
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		Locale locale2 = LocaleContextHolder.getLocale();
-		
+
 		String formatedDateTime = dateFormat.format(date);
 		mv.addAttribute("serverTime", formatedDateTime);
 		mv.addAttribute("currentLocale", locale2);
 		return "home";
 	}
-	
-//	@RequestMapping(value="/locale")
-//	public String getCurrentLocale(Locale locale,)
-	
-	// @Autowired
-	// private EmployeeJDBCTemplate employeeDAO;
-	//
+
+	@RequestMapping("/ajax")
+	public ModelAndView helloAjaxTest() {
+		return new ModelAndView("ajax", "message", "Hello hello hello");
+	}
+
+	@RequestMapping(value = "/ajaxtest", method = RequestMethod.GET)
+	public @ResponseBody String getTime() {
+		Random random = new Random();
+		float r = random.nextFloat() * 100;
+		String result = "<br>Next Random # is <b>" + r + "</b>. Generated on <b>" + new Date().toString() + "</b>";
+		System.out.println("Debug Message from CrunchifySpringAjaxJQuery Controller.." + new Date().toString());
+		return result;
+	}
+
 	// @RequestMapping(value = "/json")
 	// public @ResponseBody List<Employee> getJSON() {
 	// List<Employee> list = (List<Employee>)employeeDAO.getEmployeeList();
@@ -64,15 +71,7 @@ public class EmployeeController {
 	// Employee emp = new Employee(14, "name", 13);
 	// return emp;
 	// }
-	//
-	// @RequestMapping(value = "/list", method = RequestMethod.GET)
-	// public ModelAndView listEmployee() {
-	// List<Employee> list = employeeDAO.getEmployeeList();
-	// ModelAndView mv = new ModelAndView("employeelist");
-	// mv.addObject("listEmployee", list);
-	// return mv;
-	// }
-	//
+
 	@RequestMapping(value = "/addpage")
 	public ModelAndView addPage() {
 		ModelAndView mv = new ModelAndView("addemployee");
@@ -81,29 +80,6 @@ public class EmployeeController {
 		return mv;
 	}
 
-	//
-	// @RequestMapping(value = "/add", method = RequestMethod.POST)
-	// public String addEmlpoyee(@Valid @ModelAttribute("newEmp") Employee emp,
-	// BindingResult bindingResult) {
-	// ModelAndView mv = new ModelAndView("addemployee");
-	//
-	// if (bindingResult.hasErrors()) {
-	// return "addemployee";
-	//
-	// } else {
-	// employeeDAO.addEmployee(emp);
-	// mv.addObject("newEmp", emp);
-	// return "redirect:/list";
-	// }
-	//
-	// }
-	//
-	// @RequestMapping(value = "/delete", method = RequestMethod.GET)
-	// public String deleteEmployee(int id) {
-	// employeeDAO.deleteEmployee(id);
-	// return "redirect:/list";
-	// }
-	//
 	@RequestMapping(value = "/updatepage")
 	public ModelAndView updatePage(@RequestParam(value = "id") int id) {
 		Employee emp = employeeDAO.getEmloyee(id);
@@ -111,26 +87,10 @@ public class EmployeeController {
 		mv.addObject("newEmp", emp);
 		return mv;
 	}
-	//
-	// @RequestMapping(value = "/update", method = RequestMethod.POST)
-	// public String updateEmployee(@Valid @ModelAttribute("newEmp") Employee
-	// emp, BindingResult bindingResult) {
-	// ModelAndView mv = new ModelAndView("detailemployee");
-	// if (bindingResult.hasErrors()) {
-	// return "detailemployee";
-	// } else {
-	// employeeDAO.updateEmployee(emp);
-	// mv.addObject("newEmp", emp);
-	// return "redirect:/list";
-	// }
-	//
-	// }
 
 	@RequestMapping(value = "/listhibernate", method = RequestMethod.GET)
 	public ModelAndView listHibernateEmployee() {
-		// ClassPathXmlApplicationContext context = new
-		// ClassPathXmlApplicationContext("spring-mvc-servlet.xml");
-		// EmployeeDAO employeeDAO = context.getBean(EmployeeDAO.class);
+
 		List<Employee> list = employeeDAO.getEmployeeList();
 		ModelAndView mv = new ModelAndView("employeelist");
 		mv.addObject("listEmployee", list);
@@ -169,6 +129,4 @@ public class EmployeeController {
 		employeeDAO.deleteEmployee(id);
 		return "redirect:/listhibernate";
 	}
-	
-	
 }

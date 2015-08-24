@@ -12,8 +12,7 @@
 <title>Employee Management</title>
 </head>
 <body>
-	<tiles:insertDefinition name="secondTemplate">
-	<tiles:putAttribute name="body">
+
 		<center>
 			<div class="row">
 				<div class="col-md-4"></div>
@@ -44,7 +43,6 @@
 				<div class="col-md-4"></div>
 			</div>
 		</center>
-		</tiles:putAttribute>
-	</tiles:insertDefinition>
+
 </body>
 </html>

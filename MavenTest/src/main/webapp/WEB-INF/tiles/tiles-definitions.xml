@@ -3,15 +3,34 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  
-    <definition name="defaultTemplate" template="/WEB-INF/template/default/template.jsp">
-        <put-attribute name="header" value="/WEB-INF/template/default/header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+	<definition name="defaultTemplate" template="/WEB-INF/template/default/template.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/template/default/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+		<put-attribute name="body" value="employeelist" />
+		<put-attribute name="footer"
+			value="/WEB-INF/template/default/footer.jsp" />
+
+	</definition>
+
+	<definition name="secondTemplate" extends="defaultTemplate">
+		<put-attribute name="menu" value="" />
+	</definition>
+
+	<definition name="employeelist" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/pages/employeelist.jsp" />
+	</definition>
+
+	<definition name="home" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/pages/home.jsp" />
+	</definition>
+
+	<definition name="detailemployee" extends="secondTemplate">
+		<put-attribute name="body" value="/WEB-INF/pages/detailemployee.jsp" />
+	</definition>
+	
+	<definition name="addemployee" extends="secondTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/addemployee.jsp" />
     </definition>
-    
-    <definition name="secondTemplate" extends="defaultTemplate">
-    	<put-attribute name="menu" value="" />
-    </definition>
-  
+
 </tiles-definitions>

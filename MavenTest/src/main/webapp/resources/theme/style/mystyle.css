@@ -3,6 +3,8 @@ body {
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
+	 background-image:
+        url('http://cdn3.crunchify.com/wp-content/uploads/2013/03/Crunchify.bg_.300.png');
 }
 
 .page {
@@ -43,4 +45,7 @@ body {
 }
 .label2 {
 	padding: 5px;
+}
+.red {
+	color: red;
 }

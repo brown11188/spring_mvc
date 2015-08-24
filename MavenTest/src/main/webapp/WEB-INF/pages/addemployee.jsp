@@ -11,8 +11,6 @@
 </head>
 <body>
 
-	<tiles:insertDefinition name="secondTemplate">
-		<tiles:putAttribute name="body">
 			<center>
 				<div id="main">
 					<form:form method="post" action="addhibernate"
@@ -39,8 +37,7 @@
 
 			</center>
 
-		</tiles:putAttribute>
-	</tiles:insertDefinition>
+
 </body>
 
 </html>

@@ -1,0 +1,32 @@
+[
+  {
+    "bookid": 2,
+    "bookname": "War and Peace",
+    "bookauthor": "Leo Tolstoi",
+    "bookimgurl": "http://podularity.com/wp-content/images/war and peace.jpg"
+  },
+  {
+    "bookid": 3,
+    "bookname": "Old man and the Sea",
+    "bookauthor": "Enest Herminway",
+    "bookimgurl": "http://cdn8.openculture.com/wp-content/uploads/2014/07/old-man-and-the-sea-review.jpg"
+  },
+  {
+    "bookid": 6,
+    "bookname": "Da Vinci Code",
+    "bookauthor": "Dan Brown",
+    "bookimgurl": "http://1.bp.blogspot.com/-s-51HQrS-Hs/VYOA19QUTJI/AAAAAAAADYI/Ul1A4Yv78mI/s300/truyen-mat-ma-da-vinci-the-da-vinci-code.jpg"
+  },
+  {
+    "bookid": 7,
+    "bookname": "The Alchemist",
+    "bookauthor": "Paulo Coelho",
+    "bookimgurl": "http://www.tuningthestudentmind.com/wp-content/uploads/2014/02/the-alchemist-gn.jpg"
+  },
+  {
+    "bookid": 8,
+    "bookname": "Pride and Prejudice",
+    "bookauthor": "Jane Austen",
+    "bookimgurl": "https://static4.solarmovie.is/images/movies/0414387_big.jpg"
+  }
+]
