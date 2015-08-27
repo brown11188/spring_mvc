@@ -32,5 +32,21 @@
 	<definition name="addemployee" extends="secondTemplate">
         <put-attribute name="body" value="/WEB-INF/pages/addemployee.jsp" />
     </definition>
+    
+    <definition name="login" extends="secondTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+    </definition>
+    
+    <definition name="403" extends="secondTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/403.jsp" />
+    </definition>
+    
+    <definition name="admin" extends="secondTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/admin.jsp" />
+    </definition>
+    
+    <definition name="hello" extends="secondTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/hello.jsp" />
+    </definition>
 
 </tiles-definitions>

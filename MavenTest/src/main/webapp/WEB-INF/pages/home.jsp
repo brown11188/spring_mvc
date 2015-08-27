@@ -40,7 +40,5 @@
 					
 				<a class="more">Read more</a> 
 			</div>
-			<button id="helloAjax"  type="button">Heheheh</button>
-
 </body>
 </html>

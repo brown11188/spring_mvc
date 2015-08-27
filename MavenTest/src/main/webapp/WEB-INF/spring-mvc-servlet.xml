@@ -9,71 +9,76 @@
       http://www.springframework.org/schema/context/spring-context-4.2.xsd  
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-	<context:annotation-config />
-	<mvc:annotation-driven />
-	<context:component-scan base-package="huy.bui.controller" />
-	<mvc:resources mapping="/resources/**" location="/resources/theme/" />
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+<context:annotation-config />
+    <mvc:annotation-driven />
+    <context:component-scan base-package="huy.bui.controller" />
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver">
-		</property>
-		<property name="url" value="jdbc:mysql://localhost:3306/employee">
-		</property>
-		<property name="username" value="root">
-		</property>
-		<property name="password" value="123456789">
-		</property>
-	</bean>
-	<bean id="employeeDAO" class="huy.bui.dao.EmployeeHibernateDAOIpml">
-		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
-	</bean>
 
-	<!-- Hibernate 3 Annotation SessionFactory Bean definition -->
-	<bean id="hibernate3AnnotatedSessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="annotatedClasses">
-			<list>
-				<value>huy.bui.model.Employee</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.current_session_context_class">thread</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-			</props>
-		</property>
-	</bean>
-	<!-- Tiles configuration -->
-	<bean id="tilesConfigurer"
-		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/tiles/tiles-definitions.xml</value>
-			</list>
-		</property>
-	</bean>
+    <mvc:resources mapping="/resources/**" location="/resources/theme/" />
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
 
-	<!-- Multiple Language -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="classpath:messages" />
-		<property name="defaultEncoding" value="UTF-8" />
-	</bean>
+    <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver">
+        </property>
+        <property name="url" value="jdbc:mysql://localhost:3306/employee">
+        </property>
+        <property name="username" value="root">
+        </property>
+        <property name="password" value="123456789">
+        </property>
+    </bean>
+    
+    
+    <bean id="employeeDAO" class="huy.bui.dao.EmployeeHibernateDAOIpml">
+        <property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+    </bean>
 
-	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-		<property name="defaultLocale" value="en"></property>
-		<property name="cookieName" value="myAppLocaleCookie"></property>
-		<property name="cookieMaxAge" value="3600"></property>
-	</bean>
+    <!-- Hibernate 3 Annotation SessionFactory Bean definition -->
+    <bean id="hibernate3AnnotatedSessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>huy.bui.model.Employee</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+    <!-- Tiles configuration -->
+    <bean id="tilesConfigurer"
+        class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles/tiles-definitions.xml</value>
+            </list>
+        </property>
+    </bean>
 
-	<mvc:interceptors>
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
-			p:paramName="language" />
-	</mvc:interceptors>
+    <!-- Multiple Language -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+
+    <bean id="localeResolver"
+        class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="en"></property>
+        <property name="cookieName" value="myAppLocaleCookie"></property>
+        <property name="cookieMaxAge" value="3600"></property>
+    </bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+            p:paramName="language" />
+    </mvc:interceptors>
 </beans>

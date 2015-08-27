@@ -8,10 +8,11 @@
 	<name>Test Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<hibernate.version>3.6.9.Final</hibernate.version>
+		<hibernate.version>4.3.6.Final</hibernate.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<logback.version>1.0.13</logback.version>
 		<spring-framework.version>4.2.0.RELEASE</spring-framework.version>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<tiles-version>3.0.5</tiles-version>
 	</properties>
 	<dependencies>
@@ -74,6 +75,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
+<!-- Spring + aspects -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
 
 
 		<!-- COnfig annotation -->
@@ -149,6 +157,27 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.6.1</version>
 		</dependency>
+		
+		<!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <!-- Spring Security JSP Taglib -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+		
 
 		<!-- CGLib for @Configuration -->
 		<dependency>
